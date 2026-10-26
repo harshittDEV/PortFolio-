@@ -103,7 +103,7 @@ export const config = {
     /** Doubles as the meta description, so it has to make the claim inside ~180 characters. */
     description:
       "I build software that solves practical problems, combining mobile and frontend development with database design, API development, and secure application architecture.",
-    resumeUrl: "/HarshitSingh_CV.pdf",
+    resumeUrl: "/HarshitSingh_Resume.pdf",
     /** Portrait shown at the close of the page, in the Contact section.
      *  If the file is missing the Contact section renders without it rather than
      *  showing a broken image. */
