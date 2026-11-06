@@ -86,6 +86,23 @@ const Career = () => {
                     {exp.link.label} <MdArrowOutward />
                   </a>
                 )}
+
+                {exp.links && exp.links.length > 0 && (
+                  <div className="career-links">
+                    {exp.links.map((link, i) => (
+                      <a
+                        key={i}
+                        className="career-link"
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-cursor="disable"
+                      >
+                        {link.label} <MdArrowOutward />
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}

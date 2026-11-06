@@ -65,6 +65,7 @@ export interface Experience {
   responsibilities: string[];
   technologies: string[];
   link?: { label: string; url: string };
+  links?: { label: string; url: string }[];
 }
 
 export interface Certification {
@@ -130,7 +131,7 @@ export const config = {
       { value: "6", label: "projects in mobile, backend and database systems" },
       { value: "2", label: "certifications — HackerRank SQL and Java (Basic)" },
       { value: "3", label: "hackathon and competitive programming recognitions" },
-      { value: "1", label: "open-source pull request to Metabase" },
+      { value: "2", label: "open-source contributions to Metabase & DBeaver" },
     ],
   },
 
@@ -170,21 +171,29 @@ export const config = {
     },
     {
       position: "Open-Source Contributor",
-      company: "Metabase",
+      company: "Metabase & DBeaver",
       period: "2026",
       year: "2026",
       location: "Remote",
       kind: "work",
       description:
-        "Contributed to the open-source business intelligence platform Metabase.",
+        "Contributed to open-source projects, including Metabase and DBeaver.",
       responsibilities: [
         "Authored pull request #84991 to resolve SQL autocomplete behavior when text follows the cursor.",
+        "Contributed a code fix to the DBeaver open-source project.",
+        "Pull request was reviewed and successfully merged by the DBeaver maintainers.",
       ],
-      technologies: ["TypeScript", "SQL", "Git", "Open Source"],
-      link: {
-        label: "Pull request #84991",
-        url: "https://github.com/metabase/metabase/pull/84991",
-      },
+      technologies: ["TypeScript", "SQL", "Java", "Git", "Open Source"],
+      links: [
+        {
+          label: "Metabase PR #84991",
+          url: "https://github.com/metabase/metabase/pull/84991",
+        },
+        {
+          label: "DBeaver PR #42625 (Merged)",
+          url: "https://github.com/dbeaver/dbeaver/pull/42625",
+        },
+      ],
     },
     {
       position: "B.E. in Computer Science and Engineering",
