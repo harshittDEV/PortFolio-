@@ -1,5 +1,5 @@
 import "./styles/Career.css";
-import { config } from "../config";
+import { config, ExperienceLink } from "../config";
 import { MdArrowOutward } from "react-icons/md";
 
 /** The big number on the timeline. `year` in config wins — several
@@ -15,6 +15,33 @@ const kindLabel: Record<string, string> = {
   work: "Role",
   programme: "Programme",
   education: "Education",
+};
+
+const renderCareerLink = (link: ExperienceLink, key?: number | string) => {
+  const isMerged =
+    link.status?.toLowerCase() === "merged" ||
+    /\(merged\)/i.test(link.label);
+  const cleanLabel = link.label.replace(/\s*\(merged\)/i, "").trim();
+
+  return (
+    <a
+      key={key}
+      className={`career-link ${isMerged ? "is-merged" : ""}`}
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cursor="disable"
+      title={link.label}
+    >
+      <span className="career-link-label">{cleanLabel}</span>
+      {isMerged && (
+        <span className="career-status-badge merged" aria-label="Merged pull request">
+          MERGED
+        </span>
+      )}
+      <MdArrowOutward className="career-link-icon" />
+    </a>
+  );
 };
 
 const Career = () => {
@@ -75,32 +102,11 @@ const Career = () => {
                   </div>
                 )}
 
-                {exp.link && (
-                  <a
-                    className="career-link"
-                    href={exp.link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cursor="disable"
-                  >
-                    {exp.link.label} <MdArrowOutward />
-                  </a>
-                )}
+                {exp.link && renderCareerLink(exp.link)}
 
                 {exp.links && exp.links.length > 0 && (
                   <div className="career-links">
-                    {exp.links.map((link, i) => (
-                      <a
-                        key={i}
-                        className="career-link"
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-cursor="disable"
-                      >
-                        {link.label} <MdArrowOutward />
-                      </a>
-                    ))}
+                    {exp.links.map((link, i) => renderCareerLink(link, i))}
                   </div>
                 )}
               </div>

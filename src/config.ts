@@ -51,6 +51,12 @@ export interface Project {
   metric?: Metric;
 }
 
+export interface ExperienceLink {
+  label: string;
+  url: string;
+  status?: string;
+}
+
 export interface Experience {
   position: string;
   company: string;
@@ -64,8 +70,8 @@ export interface Experience {
   /** Outcomes, not duties. */
   responsibilities: string[];
   technologies: string[];
-  link?: { label: string; url: string };
-  links?: { label: string; url: string }[];
+  link?: ExperienceLink;
+  links?: ExperienceLink[];
 }
 
 export interface Certification {
@@ -131,7 +137,7 @@ export const config = {
       { value: "6", label: "projects in mobile, backend and database systems" },
       { value: "2", label: "certifications — HackerRank SQL and Java (Basic)" },
       { value: "3", label: "hackathon and competitive programming recognitions" },
-      { value: "2", label: "open-source contributions to Metabase & DBeaver" },
+      { value: "3", label: "open-source contributions to Metabase, DBeaver & Kana Dojo" },
     ],
   },
 
@@ -171,19 +177,21 @@ export const config = {
     },
     {
       position: "Open-Source Contributor",
-      company: "Metabase & DBeaver",
+      company: "Metabase, DBeaver & Kana Dojo",
       period: "2026",
       year: "2026",
       location: "Remote",
       kind: "work",
       description:
-        "Contributed to open-source projects, including Metabase and DBeaver.",
+        "Contributed to open-source projects, including Metabase, DBeaver, and Kana Dojo.",
       responsibilities: [
         "Authored pull request #84991 to resolve SQL autocomplete behavior when text follows the cursor.",
         "Contributed a code fix to the DBeaver open-source project.",
         "Pull request was reviewed and successfully merged by the DBeaver maintainers.",
+        "Contributed to the Kana Dojo open-source project by lingdojo.",
+        "Pull request #33842 was reviewed and successfully merged by the maintainers.",
       ],
-      technologies: ["TypeScript", "SQL", "Java", "Git", "Open Source"],
+      technologies: ["TypeScript", "SQL", "Java", "Next.js", "Git", "Open Source"],
       links: [
         {
           label: "Metabase PR #84991",
@@ -192,6 +200,12 @@ export const config = {
         {
           label: "DBeaver PR #42625 (Merged)",
           url: "https://github.com/dbeaver/dbeaver/pull/42625",
+          status: "Merged",
+        },
+        {
+          label: "Kana Dojo PR #33842 (Merged)",
+          url: "https://github.com/lingdojo/kana-dojo/pull/33842",
+          status: "Merged",
         },
       ],
     },

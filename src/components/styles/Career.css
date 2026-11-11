@@ -373,18 +373,29 @@
 .career-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   margin-top: 18px;
   font-size: 12.5px;
   letter-spacing: 0.4px;
   color: var(--accentColor);
   border-bottom: 1px solid rgba(194, 164, 255, 0.35);
   padding-bottom: 2px;
-  transition: border-color 0.25s ease;
+  transition: border-color 0.25s ease, color 0.25s ease;
+  text-decoration: none;
 }
 
 .career-link:hover {
   border-color: var(--accentColor);
+  color: #ffffff;
+}
+
+.career-link-icon {
+  font-size: 14px;
+  transition: transform 0.25s ease;
+}
+
+.career-link:hover .career-link-icon {
+  transform: translate(1px, -1px);
 }
 
 .career-links {
@@ -392,6 +403,37 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 18px;
+}
+
+.career-links .career-link {
+  margin-top: 0;
+}
+
+.career-status-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 1.5px 6.5px;
+  border-radius: 9999px;
+  line-height: 1.2;
+  transition: all 0.25s ease;
+}
+
+.career-status-badge.merged {
+  color: #d29bff;
+  background: rgba(170, 66, 255, 0.14);
+  border: 1px solid rgba(170, 66, 255, 0.45);
+  box-shadow: 0 0 10px rgba(170, 66, 255, 0.25);
+}
+
+.career-link:hover .career-status-badge.merged {
+  color: #ffffff;
+  background: rgba(170, 66, 255, 0.28);
+  border-color: rgba(170, 66, 255, 0.8);
+  box-shadow: 0 0 14px rgba(170, 66, 255, 0.5);
 }
 
 @media only screen and (max-width: 1400px) {
